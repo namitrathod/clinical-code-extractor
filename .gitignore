@@ -1,0 +1,23 @@
+# Python runtime artifacts
+__pycache__/
+*.pyc
+*.pyo
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Jupyter checkpoints
+.ipynb_checkpoints/
+
+# Raw downloaded code tables (large; whitelists are the curated output we keep)
+codes/icd10_full.csv
+codes/cpt_full.csv
+
+# Model prediction files downloaded from Colab (regenerable)
+predictions_*.jsonl
+
+# OS noise
+Thumbs.db
+.DS_Store
