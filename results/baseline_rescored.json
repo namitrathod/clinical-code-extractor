@@ -1,0 +1,23 @@
+{
+  "n_samples": 500,
+  "metrics": {
+    "icd10_macro_f1": 0.1795,
+    "icd10_micro_f1": 0.1922,
+    "cpt_macro_f1": 0.0268,
+    "cpt_micro_f1": 0.1392,
+    "micro_f1_avg": 0.1657,
+    "exact_set_match_icd10": 0.088,
+    "exact_set_match_cpt": 0.092,
+    "top1_recall_primary_icd10": 0.14,
+    "top3_recall_primary_icd10": 0.142,
+    "json_validity_rate": 0.972,
+    "notes_with_invalid_icd10_rate": 0.098,
+    "notes_with_invalid_cpt_rate": 0.218,
+    "invalid_icd10_code_rate_pre_filter": 0.2809,
+    "invalid_cpt_code_rate_pre_filter": 0.2938
+  },
+  "model": "google/gemma-4-E4B-it",
+  "split": "test",
+  "predictions_file": "predictions_baseline_rescored.jsonl",
+  "gold_file": "C:\\Users\\91898\\Desktop\\project\\finetune\\data\\test.jsonl"
+}

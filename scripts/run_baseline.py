@@ -20,7 +20,7 @@ ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
 
 from src.prompts import format_for_model  # noqa: E402
-from src.validate import filter_codes, load_whitelists, parse_model_output  # noqa: E402
+from src.validate import load_whitelists, process_model_output  # noqa: E402
 
 
 def load_jsonl(path: Path) -> list[dict[str, Any]]:
@@ -53,7 +53,7 @@ def parse_args() -> argparse.Namespace:
     p.add_argument("--output", type=Path, default=ROOT / "predictions_baseline.jsonl")
     p.add_argument("--model", type=str, default="google/gemma-4-E4B-it")
     p.add_argument("--max-samples", type=int, default=None)
-    p.add_argument("--max-new-tokens", type=int, default=128)
+    p.add_argument("--max-new-tokens", type=int, default=256)
     p.add_argument("--4bit", dest="use_4bit", action="store_true", default=True)
     p.add_argument("--no-4bit", dest="use_4bit", action="store_false")
     return p.parse_args()
@@ -92,19 +92,11 @@ def main() -> None:
 
     for i, row in enumerate(rows, start=1):
         raw = generate_one(model, tokenizer, row["note"], args.max_new_tokens)
-        parsed = parse_model_output(raw)
-        filtered = filter_codes(parsed, icd_whitelist, cpt_whitelist)
+        filtered = process_model_output(raw, icd_whitelist, cpt_whitelist)
 
         predictions.append({
             "id": row["id"],
-            "raw_output": raw,
-            "json_valid": filtered["json_valid"],
-            "icd10_pre": filtered["icd10_pre"],
-            "cpt_pre": filtered["cpt_pre"],
-            "icd10": filtered["icd10"],
-            "cpt": filtered["cpt"],
-            "invalid_icd10": filtered["invalid_icd10"],
-            "invalid_cpt": filtered["invalid_cpt"],
+            **filtered,
         })
 
         if i % 10 == 0 or i == len(rows):

@@ -17,6 +17,12 @@ from typing import Any
 USER_PROMPT_TEMPLATE = """### Clinical note:
 {note}
 
+### Task
+Return billing codes as one JSON object with exactly these keys:
+- "icd10": list of ICD-10-CM code strings
+- "cpt": list of CPT code strings
+No markdown, no explanations, no other keys.
+
 ### Billing codes (JSON only):
 """
 
