@@ -18,6 +18,13 @@ codes/cpt_full.csv
 # Model prediction files downloaded from Colab (regenerable)
 predictions_*.jsonl
 
+# SFT JSONL generated from train/val by prepare_training_data.py
+data/train_sft.jsonl
+data/val_sft.jsonl
+
+# Training checkpoints (large; pushed to HF Hub)
+checkpoints/
+
 # OS noise
 Thumbs.db
 .DS_Store

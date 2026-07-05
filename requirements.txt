@@ -12,6 +12,5 @@ scikit-learn>=1.4.0
 pandas>=2.0.0
 tqdm>=4.66.0
 
-# Demo (Milestone 6)
-gradio>=4.0.0
-huggingface_hub>=0.22.0
+# Training / experiment tracking
+wandb>=0.16.0

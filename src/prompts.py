@@ -44,6 +44,20 @@ def build_completion(icd10: list[str], cpt: list[str]) -> str:
     return json.dumps({"icd10": icd10, "cpt": cpt}, separators=(",", ": "))
 
 
+def build_training_messages(note: str, icd10: list[str], cpt: list[str]) -> list[dict[str, str]]:
+    """Chat messages for SFT (user prompt + assistant JSON completion)."""
+    return [
+        {"role": "user", "content": build_user_content(note)},
+        {"role": "assistant", "content": build_completion(icd10, cpt)},
+    ]
+
+
+def format_training_text(tokenizer: Any, note: str, icd10: list[str], cpt: list[str]) -> str:
+    """Full chat-formatted training example (used by SFTTrainer formatting_func)."""
+    messages = build_training_messages(note, icd10, cpt)
+    return tokenizer.apply_chat_template(messages, tokenize=False)
+
+
 def format_for_model(tokenizer: Any, note: str, *, tokenize: bool = False) -> str | list[int]:
     """Apply the model's chat template (required for Gemma 4 instruction models)."""
     messages = [{"role": "user", "content": build_user_content(note)}]
