@@ -34,17 +34,36 @@ def load_jsonl(path: Path) -> list[dict[str, Any]]:
 
 
 def generate_one(model, tokenizer, note: str, max_new_tokens: int) -> str:
+    import torch
+
+    model.eval()
+    if hasattr(model, "gradient_checkpointing_disable"):
+        model.gradient_checkpointing_disable()
+    if hasattr(model, "config"):
+        model.config.use_cache = True
+
     prompt = format_for_model(tokenizer, note, tokenize=False)
-    inputs = tokenizer(prompt, return_tensors="pt").to(model.device)
-    output_ids = model.generate(
-        **inputs,
-        max_new_tokens=max_new_tokens,
-        do_sample=False,
-        temperature=0.0,
-        pad_token_id=tokenizer.eos_token_id,
-    )
-    new_tokens = output_ids[0, inputs["input_ids"].shape[1] :]
-    return tokenizer.decode(new_tokens, skip_special_tokens=True)
+    inputs = tokenizer(prompt, return_tensors="pt")
+    device = next(model.parameters()).device
+    input_ids = inputs["input_ids"].to(device)
+    attention_mask = inputs.get("attention_mask")
+    if attention_mask is not None:
+        attention_mask = attention_mask.to(device)
+
+    gen_kwargs: dict[str, Any] = {
+        "input_ids": input_ids,
+        "max_new_tokens": max_new_tokens,
+        "do_sample": False,
+        "pad_token_id": tokenizer.eos_token_id,
+    }
+    if attention_mask is not None:
+        gen_kwargs["attention_mask"] = attention_mask
+
+    with torch.no_grad():
+        output_ids = model.generate(**gen_kwargs)
+
+    prompt_len = input_ids.shape[1]
+    return tokenizer.decode(output_ids[0, prompt_len:], skip_special_tokens=True)
 
 
 def parse_args() -> argparse.Namespace:

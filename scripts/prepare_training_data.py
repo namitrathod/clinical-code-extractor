@@ -19,7 +19,7 @@ from typing import Any
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
 
-from src.prompts import build_completion, build_prompt  # noqa: E402
+from src.prompts import build_completion, build_prompt, build_training_messages  # noqa: E402
 
 
 def load_jsonl(path: Path) -> list[dict[str, Any]]:
@@ -43,6 +43,7 @@ def to_sft_row(row: dict[str, Any]) -> dict[str, Any]:
         "note": note,
         "icd10": icd10,
         "cpt": cpt,
+        "messages": build_training_messages(note, icd10, cpt),
         "prompt": prompt,
         "completion": completion,
         "text": prompt + completion,

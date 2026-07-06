@@ -103,8 +103,12 @@ def check_imports() -> list[str]:
 
         ver = getattr(trl, "__version__", "unknown")
         cfg_fields = set(SFTConfig.__dataclass_fields__)
-        if "max_seq_length" not in cfg_fields and "max_length" in cfg_fields:
-            issues.append("TRL uses max_length not max_seq_length — update notebook SFTConfig")
+        if "max_seq_length" not in cfg_fields and "max_length" not in cfg_fields:
+            issues.append("TRL SFTConfig missing max_length — check trl version")
+        elif "max_seq_length" in cfg_fields and "max_length" not in cfg_fields:
+            issues.append("INFO: older TRL uses max_seq_length in notebook")
+        elif "max_length" in cfg_fields:
+            issues.append("INFO: TRL uses max_length (not max_seq_length) in SFTConfig")
         if "assistant_only_loss" not in cfg_fields:
             issues.append(f"TRL {ver}: assistant_only_loss not in SFTConfig — set False or upgrade trl")
         sig = SFTTrainer.__init__.__code__.co_varnames

@@ -52,6 +52,16 @@ def build_training_messages(note: str, icd10: list[str], cpt: list[str]) -> list
     ]
 
 
+def build_training_prompt_completion(
+    note: str, icd10: list[str], cpt: list[str]
+) -> dict[str, list[dict[str, str]]]:
+    """Prompt/completion turns for TRL SFTTrainer (completion_only_loss)."""
+    return {
+        "prompt": [{"role": "user", "content": build_user_content(note)}],
+        "completion": [{"role": "assistant", "content": build_completion(icd10, cpt)}],
+    }
+
+
 def format_training_text(tokenizer: Any, note: str, icd10: list[str], cpt: list[str]) -> str:
     """Full chat-formatted training example (used by SFTTrainer formatting_func)."""
     messages = build_training_messages(note, icd10, cpt)

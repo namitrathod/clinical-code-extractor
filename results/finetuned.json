@@ -1,0 +1,23 @@
+{
+  "n_samples": 500,
+  "metrics": {
+    "icd10_macro_f1": 0.9754,
+    "icd10_micro_f1": 0.937,
+    "cpt_macro_f1": 0.4366,
+    "cpt_micro_f1": 0.5838,
+    "micro_f1_avg": 0.7604,
+    "exact_set_match_icd10": 0.848,
+    "exact_set_match_cpt": 0.364,
+    "top1_recall_primary_icd10": 1.0,
+    "top3_recall_primary_icd10": 1.0,
+    "json_validity_rate": 1.0,
+    "notes_with_invalid_icd10_rate": 0.0,
+    "notes_with_invalid_cpt_rate": 0.0,
+    "invalid_icd10_code_rate_pre_filter": 0.0,
+    "invalid_cpt_code_rate_pre_filter": 0.0
+  },
+  "model": "google/gemma-4-E4B-it",
+  "split": "test",
+  "predictions_file": "predictions_finetuned.jsonl",
+  "gold_file": "/content/clinical-code-extractor/data/test.jsonl"
+}
