@@ -1,0 +1,195 @@
+[
+  {
+    "id": "note_04872",
+    "score": 0.16666666666666666,
+    "note_snippet": "UC visit \u2014 28yo F, acute onset limited range of motion. Focused exam: tenderness on palpation; decreased ROM; no erythema. No red flags. Assessment: Cervicalgia. Plan: physical therapy referral, activ",
+    "gold_icd10": [
+      "M54.2",
+      "E66.9"
+    ],
+    "gold_cpt": [
+      "99204"
+    ],
+    "pred_icd10": [
+      "M54.2",
+      "I10"
+    ],
+    "pred_cpt": [
+      "99203"
+    ],
+    "diagnosis": "ICD and CPT both partially wrong"
+  },
+  {
+    "id": "note_04865",
+    "score": 0.25,
+    "note_snippet": "Annual wellness visit. Jennifer, 46yo M, swelling. Exam: tenderness on palpation; decreased ROM; no erythema.  Assessment: Pain in left knee. Plan: NSAIDs as needed, physical therapy referral.",
+    "gold_icd10": [
+      "M25.562",
+      "I10"
+    ],
+    "gold_cpt": [
+      "99396"
+    ],
+    "pred_icd10": [
+      "M25.562"
+    ],
+    "pred_cpt": [
+      "99386"
+    ],
+    "diagnosis": "missed secondary ICD code"
+  },
+  {
+    "id": "note_04905",
+    "score": 0.25,
+    "note_snippet": "UC visit \u2014 55yo M, acute onset frequency. Focused exam: suprapubic tenderness; no CVA tenderness; stable vitals. No red flags. Assessment: Chronic kidney disease, stage 3 unspecified. Plan: antibiotic",
+    "gold_icd10": [
+      "N18.30",
+      "I10"
+    ],
+    "gold_cpt": [
+      "99204"
+    ],
+    "pred_icd10": [
+      "N18.30"
+    ],
+    "pred_cpt": [
+      "99203"
+    ],
+    "diagnosis": "missed secondary ICD code"
+  },
+  {
+    "id": "note_04937",
+    "score": 0.25,
+    "note_snippet": "UC visit \u2014 25yo M, acute onset heartburn. Focused exam: abdomen soft, mild epigastric tenderness; no rebound or guarding. No red flags. Assessment: Unspecified abdominal pain. Plan: diet modification,",
+    "gold_icd10": [
+      "R10.9",
+      "K21.9"
+    ],
+    "gold_cpt": [
+      "99204"
+    ],
+    "pred_icd10": [
+      "R10.9"
+    ],
+    "pred_cpt": [
+      "99203"
+    ],
+    "diagnosis": "missed secondary ICD code"
+  },
+  {
+    "id": "note_04691",
+    "score": 0.25,
+    "note_snippet": "Annual wellness visit. David, 53yo M, leg swelling. Exam: BP 145/82 mmHg; regular rate and rhythm; no murmurs. Prior appendectomy, no other surgeries. Assessment: Heart failure, unspecified. Plan: con",
+    "gold_icd10": [
+      "I50.9",
+      "E11.9"
+    ],
+    "gold_cpt": [
+      "99386",
+      "93000"
+    ],
+    "pred_icd10": [
+      "I50.9"
+    ],
+    "pred_cpt": [
+      "99396"
+    ],
+    "diagnosis": "missed secondary ICD code"
+  },
+  {
+    "id": "note_04818",
+    "score": 0.25,
+    "note_snippet": "UC visit \u2014 62yo M, acute onset bloating. Focused exam: abdomen soft, mild epigastric tenderness; no rebound or guarding. No red flags. Assessment: Constipation, unspecified. Plan: follow up in 6 weeks",
+    "gold_icd10": [
+      "K59.00"
+    ],
+    "gold_cpt": [
+      "99202"
+    ],
+    "pred_icd10": [
+      "K59.00",
+      "E66.9"
+    ],
+    "pred_cpt": [
+      "99204"
+    ],
+    "diagnosis": "ICD and CPT both partially wrong"
+  },
+  {
+    "id": "note_04533",
+    "score": 0.25,
+    "note_snippet": "UC visit \u2014 74yo M, acute onset burning pain in lower extremities. Focused exam: decreased sensation to monofilament; A1c 9.9%. No red flags. Assessment: Type 2 diabetes mellitus with diabetic neuropat",
+    "gold_icd10": [
+      "E11.40",
+      "E78.5"
+    ],
+    "gold_cpt": [
+      "99202"
+    ],
+    "pred_icd10": [
+      "E11.40"
+    ],
+    "pred_cpt": [
+      "99204"
+    ],
+    "diagnosis": "missed secondary ICD code"
+  },
+  {
+    "id": "note_04663",
+    "score": 0.25,
+    "note_snippet": "UC visit \u2014 63yo F, acute onset headache. Focused exam: BP 155/101 mmHg; regular rate and rhythm; no murmurs. No red flags. Assessment: Essential (primary) hypertension. Plan: home BP log, low-sodium d",
+    "gold_icd10": [
+      "I10",
+      "E78.5"
+    ],
+    "gold_cpt": [
+      "99202",
+      "93000"
+    ],
+    "pred_icd10": [
+      "I10"
+    ],
+    "pred_cpt": [
+      "99204"
+    ],
+    "diagnosis": "missed secondary ICD code"
+  },
+  {
+    "id": "note_04537",
+    "score": 0.25,
+    "note_snippet": "Annual wellness visit. Michael, 65yo F, blurred vision. Exam: BMI 30.0; fasting glucose 183.8 mg/dL; A1c 10.3%. Family history: father with CAD. Assessment: Type 2 diabetes mellitus with hyperglycemia",
+    "gold_icd10": [
+      "E11.65",
+      "E78.5"
+    ],
+    "gold_cpt": [
+      "99396"
+    ],
+    "pred_icd10": [
+      "E11.65"
+    ],
+    "pred_cpt": [
+      "99386"
+    ],
+    "diagnosis": "missed secondary ICD code"
+  },
+  {
+    "id": "note_04889",
+    "score": 0.25,
+    "note_snippet": "Annual wellness visit. Susan, 23yo F, stiffness. Exam: tenderness on palpation; decreased ROM; no erythema.  Assessment: Myalgia, unspecified site. Plan: NSAIDs as needed, physical therapy referral.",
+    "gold_icd10": [
+      "M79.10",
+      "M54.50"
+    ],
+    "gold_cpt": [
+      "99395"
+    ],
+    "pred_icd10": [
+      "M79.10"
+    ],
+    "pred_cpt": [
+      "99385"
+    ],
+    "diagnosis": "missed secondary ICD code"
+  }
+]
